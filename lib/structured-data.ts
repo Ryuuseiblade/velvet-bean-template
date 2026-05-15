@@ -1,15 +1,15 @@
-import { siteContent } from "@/data/site-content";
+import { siteConfig } from "@/config";
 import { getSiteUrl } from "@/lib/site-url";
 
 function getEmail(): string | undefined {
-  const block = siteContent.contact.info.find((b) => b.email);
+  const block = siteConfig.contact.info.find((b) => b.email);
   return block?.email;
 }
 
 /** Graph payload for `<JsonLd />` — WebSite + CafeOrCoffeeShop. */
 export function buildJsonLdGraph() {
   const url = getSiteUrl();
-  const { brand, metadata, structuredData } = siteContent;
+  const { brand, metadata, structuredData } = siteConfig;
   const email = getEmail();
   const b = structuredData.business;
 
@@ -20,7 +20,7 @@ export function buildJsonLdGraph() {
     legalName: brand.legalName,
     description: metadata.description,
     url,
-    image: siteContent.gallery.images.filter((img) => img.priority).map((img) => img.src),
+    image: siteConfig.gallery.images.filter((img) => img.priority).map((img) => img.src),
     address: {
       "@type": "PostalAddress",
       streetAddress: b.streetAddress,
@@ -46,7 +46,7 @@ export function buildJsonLdGraph() {
   if (phone) {
     cafe.telephone = phone;
   }
-  const sameAs = siteContent.footer.social.map((s) => s.href).filter(Boolean);
+  const sameAs = siteConfig.footer.social.map((s) => s.href).filter(Boolean);
   if (sameAs.length > 0) {
     cafe.sameAs = sameAs;
   }
@@ -58,7 +58,7 @@ export function buildJsonLdGraph() {
     name: brand.name,
     description: metadata.description,
     publisher: { "@id": `${url}/#cafe` },
-    inLanguage: siteContent.metadata.language,
+    inLanguage: siteConfig.metadata.language,
   };
 
   return {

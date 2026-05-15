@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { siteContent } from "@/data/site-content";
+import { siteConfig } from "@/config";
 import { getSiteUrl } from "@/lib/site-url";
+
+const OG_IMAGE_PATH = "/opengraph-image";
 
 export function buildRootMetadata(): Metadata {
   const url = getSiteUrl();
-  const { metadata, brand, seo } = siteContent;
+  const { metadata, brand, seo, gallery } = siteConfig;
   const twitter = process.env.NEXT_PUBLIC_TWITTER_SITE?.trim();
+  const ogImage = `${url}${OG_IMAGE_PATH}`;
 
   return {
     metadataBase: new URL(url),
@@ -33,11 +36,20 @@ export function buildRootMetadata(): Metadata {
       siteName: brand.name,
       title: metadata.title,
       description: metadata.description,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: metadata.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: metadata.title,
       description: metadata.description,
+      images: [ogImage],
       ...(twitter ? { site: twitter, creator: twitter } : {}),
     },
     robots: {
@@ -54,5 +66,6 @@ export function buildRootMetadata(): Metadata {
     category: "food",
     applicationName: brand.name,
     referrer: "origin-when-cross-origin",
+    manifest: "/manifest.webmanifest",
   };
 }

@@ -1,12 +1,17 @@
 {
-  "name": "velvet-bean",
-  "version": "0.1.0",
+  "name": "velvet-bean-coffee-template",
+  "version": "1.0.0",
   "private": true,
+  "description": "Premium luxury coffee shop landing page — Next.js 15, TypeScript, Tailwind CSS, Framer Motion",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18.18.0"
   },
   "dependencies": {
     "framer-motion": "^11.18.0",

@@ -18,6 +18,9 @@
 # production
 /build
 
+# duplicate scaffold (do not deploy)
+/velvet-bean/
+
 # misc
 .DS_Store
 *.pem

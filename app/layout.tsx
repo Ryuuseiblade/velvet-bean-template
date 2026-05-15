@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
-import { siteContent } from "@/data/site-content";
+import { MotionProvider } from "@/components/providers/motion-provider";
+import { siteConfig } from "@/config";
+import { fontClassName } from "@/lib/fonts";
 import { buildRootMetadata } from "@/lib/root-metadata";
 import { buildJsonLdGraph } from "@/lib/structured-data";
 import "./globals.css";
@@ -9,29 +10,10 @@ import "./globals.css";
 export const metadata: Metadata = buildRootMetadata();
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#090807" },
-    { media: "(prefers-color-scheme: light)", color: "#f3ece5" },
-  ],
+  themeColor: "#070605",
   width: "device-width",
   initialScale: 1,
 };
-
-const display = Instrument_Serif({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "600"],
-  display: "swap",
-  adjustFontFallback: true,
-});
-
-const sans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["400", "500", "600"],
-  display: "swap",
-  adjustFontFallback: true,
-});
 
 export default function RootLayout({
   children,
@@ -39,12 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={siteContent.metadata.language} className={`${display.variable} ${sans.variable}`}>
+    <html lang={siteConfig.metadata.language} className={fontClassName}>
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
-      <body className="font-sans text-[15px] font-normal leading-relaxed tracking-[-0.01em] text-crema-whisper antialiased md:text-base">
+      <body className="font-sans text-[15px] font-normal leading-relaxed tracking-[-0.01em] text-crema-whisper antialiased md:text-base lg:text-[17px]">
         <JsonLd data={buildJsonLdGraph()} />
         <a
           href="#main-content"
@@ -52,7 +34,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

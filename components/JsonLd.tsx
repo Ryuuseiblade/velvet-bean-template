@@ -2,14 +2,11 @@ type JsonLdProps = {
   data: unknown;
 };
 
-/**
- * Emits JSON-LD for crawlers. Keep payloads aligned with visible content (`data/site-content.ts`).
- */
+/** Emits JSON-LD for crawlers. Keep aligned with `config/site.config.ts`. */
 export function JsonLd({ data }: JsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );

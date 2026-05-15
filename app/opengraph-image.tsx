@@ -1,14 +1,12 @@
 import { ImageResponse } from "next/og";
-import { siteContent } from "@/data/site-content";
+import { siteConfig } from "@/config";
 
-export const runtime = "edge";
-
-export const alt = siteContent.metadata.title;
+export const alt = siteConfig.metadata.title;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
-  const { brand, hero, metadata } = siteContent;
+  const { brand, hero, metadata } = siteConfig;
 
   return new ImageResponse(
     (
