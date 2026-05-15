@@ -4,10 +4,10 @@ import { m } from "framer-motion";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Stars } from "@/components/ui/stars";
-import { siteContent } from "@/config";
+import { siteConfig } from "@/config";
 import { hoverLift, staggerContainer, staggerItemScale } from "@/lib/motion";
 
-const { sections, testimonials } = siteContent;
+const { sections, testimonials } = siteConfig;
 
 export function TestimonialsSection() {
   return (

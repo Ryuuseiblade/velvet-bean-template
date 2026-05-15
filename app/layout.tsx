@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { JsonLd } from "@/components/JsonLd";
+import { JsonLd } from "@/components/seo";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import { siteConfig } from "@/config";
 import { fontClassName } from "@/lib/fonts";

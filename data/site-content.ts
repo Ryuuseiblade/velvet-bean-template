@@ -1,10 +1,9 @@
 /**
  * @deprecated Import from `@/config` instead.
- * This file exists for backward compatibility only.
  */
 export {
   siteConfig,
-  siteContent,
+  siteConfig as siteContent,
   type SiteConfig,
-  type SiteContent,
-} from "@/config/site.config";
+  type SiteConfig as SiteContent,
+} from "@/config";

@@ -3,10 +3,10 @@
 import { m } from "framer-motion";
 import { FormEvent, useState } from "react";
 import { Section } from "@/components/ui/section";
-import { siteContent } from "@/config";
+import { siteConfig } from "@/config";
 import { EASE_OUT_EXPO, fadeUpHidden, fadeUpVisible, staggerContainer } from "@/lib/motion";
 
-const { sections, contact } = siteContent;
+const { sections, contact } = siteConfig;
 
 export function ContactSection() {
   const [sent, setSent] = useState(false);

@@ -4,10 +4,10 @@ import { m } from "framer-motion";
 import Image from "next/image";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
-import { siteContent } from "@/config";
+import { siteConfig } from "@/config";
 import { hoverLift, staggerContainer, staggerItemScale } from "@/lib/motion";
 
-const { sections, gallery } = siteContent;
+const { sections, gallery } = siteConfig;
 
 export function GallerySection() {
   return (

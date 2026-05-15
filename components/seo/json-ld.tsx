@@ -2,7 +2,7 @@ type JsonLdProps = {
   data: unknown;
 };
 
-/** Emits JSON-LD for crawlers. Keep aligned with `config/site.config.ts`. */
+/** Structured data for search engines — keep in sync with `config/site.config.ts`. */
 export function JsonLd({ data }: JsonLdProps) {
   return (
     <script

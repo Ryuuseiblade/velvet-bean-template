@@ -3,10 +3,20 @@
  *  SITE CONFIG — Edit this file to customize your template
  * ============================================================
  *
- * All visible copy, links, menu items, and SEO text live here.
- * Colors & fonts: see `config/theme.config.ts` and `tailwind.config.ts`
+ * CHECKLIST (first-time setup):
+ *  [ ] brand.name + legalName
+ *  [ ] metadata.title + description
+ *  [ ] navigation.links (match sections.* ids)
+ *  [ ] hero title, CTAs, highlights
+ *  [ ] menu.items (add/remove drinks)
+ *  [ ] gallery.images (URLs or /public/images/…)
+ *  [ ] contact.info + footer.social
+ *  [ ] .env.local → NEXT_PUBLIC_SITE_URL
  *
- * After editing, run: npm run dev
+ * Colors & fonts: `tailwind.config.ts` + `lib/fonts.ts`
+ * Hide sections: `config/features.config.ts`
+ *
+ * After editing: npm run dev
  */
 
 import type {
@@ -284,8 +294,3 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
-
-/** @deprecated Use `siteConfig` — kept for internal compatibility */
-export const siteContent = siteConfig;
-
-export type SiteContent = SiteConfig;

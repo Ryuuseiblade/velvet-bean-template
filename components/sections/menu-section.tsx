@@ -3,10 +3,10 @@
 import { m } from "framer-motion";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
-import { siteContent } from "@/config";
+import { siteConfig } from "@/config";
 import { hoverLift, staggerContainer, staggerItemScale } from "@/lib/motion";
 
-const { sections, menu } = siteContent;
+const { sections, menu } = siteConfig;
 
 export function MenuSection() {
   return (
